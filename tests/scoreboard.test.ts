@@ -29,7 +29,7 @@ describe('scoreboard', () => {
     });
 
     test('should sort matches by total score and most recent', () => {
-        scoreboard.startMatch('Team1,' 'Team2');
+        scoreboard.startMatch('Team1,', 'Team2');
         scoreboard.updateScore('Team1', 1, 3);
         
         scoreboard.startMatch('Team3', 'Team4');

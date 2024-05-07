@@ -1,11 +1,17 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export class Match {
   private _homeScore: number = 0;
   private _awayScore: number = 0;
+  public readonly id: string;
+
   constructor(
     public homeTeam: string,
     public awayTeam: string,
     public startTime: Date = new Date()
-  ) {}
+  ) {
+    this.id = uuidv4();
+  }
 
   get homeScore(): number {
     return this._homeScore;

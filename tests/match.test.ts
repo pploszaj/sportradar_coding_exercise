@@ -7,9 +7,12 @@ describe('Match', () => {
         match = new Match('Home Team', 'Away Team');
     });
 
-    test('should initialize with zero scores', () => {
+    test('should initialize with zero scores and valid id', () => {
         expect(match.homeScore).toBe(0);
         expect(match.awayScore).toBe(0);
+        expect(match.id).toBeDefined();
+        expect(typeof match.id).toBe('string');
+        expect(match.id).toMatch(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[4][0-9a-fA-F]{3}-[89ABab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/);
     });
 
     test('should update the score', () => {
