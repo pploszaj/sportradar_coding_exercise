@@ -1,11 +1,12 @@
 import { Match } from "../models/match";
 
 export class Scoreboard {
-    private matches: Match[] = [];
+    private matches: Map<string, Match> = new Map();
 
-    startMatch(homeTeam: string, awayTeam: string): void {
+    startMatch(homeTeam: string, awayTeam: string): string {
         const match = new Match(homeTeam, awayTeam);
-        this.matches.push(match);
+        this.matches.set(match.id, match);
+        return match.id;
     }
 
     updateScore(homeTeam: string, homeScore: number, awayScore: number){}
