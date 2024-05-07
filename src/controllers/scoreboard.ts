@@ -9,7 +9,15 @@ export class Scoreboard {
         return match.id;
     }
 
-    updateScore(homeTeam: string, homeScore: number, awayScore: number){}
+    updateScore(matchId: string, homeScore: number, awayScore: number): void{
+        const match = this.matches.get(matchId);
+        if(match){
+            match.homeScore = homeScore;
+            match.awayScore = awayScore;
+        } else {
+            throw new Error('Match not found');
+        }
+    }
 
     finishMatch(homeTeam: string){}
 

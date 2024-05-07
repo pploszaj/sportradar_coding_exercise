@@ -23,6 +23,14 @@ describe('scoreboard', () => {
         expect(match.awayScore).toBe(2);
     });
 
+    test('should throw an error if trying to update a non-existent match', () => {
+        const fakeMatchId = 'non-existent-id';
+        expect(() => {
+          scoreboard.updateScore(fakeMatchId, 1, 2);
+        }).toThrow('Match not found');
+      });
+    
+
     test('should finish and remove a match using its id', () => {
         const matchId = scoreboard.startMatch('Home', 'Away');
         scoreboard.finishMatch(matchId);
