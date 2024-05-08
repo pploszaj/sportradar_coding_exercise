@@ -19,17 +19,21 @@ export class Scoreboard {
         }
     }
 
-    finishMatch(homeTeam: string){}
+    finishMatch(matchId: string): void {
+        if(!this.matches.delete(matchId)){
+            throw new Error('Match not found');
+        }
+    }
 
     getSummary(): Match[] {
-        return this.matches.sort((a, b) => {
+        return Array.from(this.matches.values()).sort((a, b) => {
             const totalScoreHome = a.homeScore + a.awayScore;
             const totalScoreAway = b.homeScore + b.awayScore;
             if(totalScoreHome === totalScoreAway){
                 return b.startTime.getTime() - a.startTime.getTime();
             }
             return totalScoreAway - totalScoreHome;
-        })
+        });
     }
 
 }

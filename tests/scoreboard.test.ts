@@ -37,6 +37,13 @@ describe('scoreboard', () => {
         expect(scoreboard.getSummary()).toHaveLength(0);
     });
 
+    test('should throw an error if trying to finish a non-existent match', () => {
+        const fakeMatchId = 'non-existent-id';
+        expect(() => {
+          scoreboard.finishMatch(fakeMatchId);
+        }).toThrow('Match not found');
+      });
+
     test('should sort matches by total score and most recent', () => {
         const matchId1 = scoreboard.startMatch('Team1,', 'Team2');
         const matchId2 = scoreboard.startMatch('Team3', 'Team4');
@@ -47,8 +54,8 @@ describe('scoreboard', () => {
         scoreboard.updateScore(matchId3, 5, 1)
 
         const summary = scoreboard.getSummary();
-        expect(summary[0].id).toBe(matchId1);
-        expect(summary[1].id).toBe(matchId2);
-        expect(summary[2].id).toBe(matchId3);
+        expect(summary[0].id).toBe(matchId3);
+        expect(summary[1].id).toBe(matchId1);
+        expect(summary[2].id).toBe(matchId2);
     });
 });
