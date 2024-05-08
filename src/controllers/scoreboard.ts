@@ -27,13 +27,12 @@ export class Scoreboard {
 
     getSummary(): Match[] {
         return Array.from(this.matches.values()).sort((a, b) => {
-            const totalScoreHome = a.homeScore + a.awayScore;
-            const totalScoreAway = b.homeScore + b.awayScore;
-            if(totalScoreHome === totalScoreAway){
+            const totalScoreA: number = a.homeScore + a.awayScore;
+            const totalScoreB: number = b.homeScore + b.awayScore;
+            if(totalScoreA === totalScoreB){
                 return b.startTime.getTime() - a.startTime.getTime();
             }
-            return totalScoreAway - totalScoreHome;
+            return totalScoreB - totalScoreA;
         });
     }
-
 }

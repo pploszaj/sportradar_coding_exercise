@@ -51,7 +51,7 @@ describe('scoreboard', () => {
         
         scoreboard.updateScore(matchId1, 1, 3);
         scoreboard.updateScore(matchId2, 2, 2);
-        scoreboard.updateScore(matchId3, 5, 1)
+        scoreboard.updateScore(matchId3, 5, 1);
 
         const summary = scoreboard.getSummary();
         expect(summary[0].id).toBe(matchId3);
