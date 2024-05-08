@@ -6,11 +6,11 @@ This library provides an in-memory management system for a live football match s
 ## Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/world-cup-scoreboard.git
+https://github.com/pploszaj/sportradar_coding_exercise.git
 ```
 2. Navigate to the project directory:
 ```bash
-cd world-cup-scoreboard
+cd sportradar_coding_exercise
 ```
 3. Install the dependencies:
 ```bash
